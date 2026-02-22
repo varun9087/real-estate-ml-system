@@ -1,121 +1,168 @@
-# 🏠 Real Estate ML System – Phase 1
+🏠 Real Estate ML System – Phase 2
+This project is the second phase of a long-term Machine Learning system designed to predict real estate prices using multiple property features.
 
-This project is the first phase of a long-term Machine Learning system designed to predict real estate prices based on property size.
+In Phase 2, the system has been upgraded from single-feature linear regression to a multi-feature, vectorized regression engine, implemented completely from scratch using Gradient Descent.
 
-In this phase, Linear Regression is implemented completely **from scratch using Gradient Descent**, without using machine learning libraries like scikit-learn. The system also includes a **Streamlit-based web interface** for real-time price prediction.
+The system now includes:
 
----
+Multi-feature learning
 
-## 🚀 Version Information
+Feature scaling
 
-- Version: 1.0
-- Model: Linear Regression (Single Feature)
-- Optimization: Gradient Descent
-- Dataset: Custom Housing Dataset
-- Interface: Streamlit Web App
+Vectorized optimization
 
----
+Cost convergence visualization
 
-## 🎯 Problem Statement
+Streamlit-based interactive web interface
 
-Build a scalable machine learning system that predicts house prices based on input features.  
-Phase 1 focuses on a single feature (house size) and establishes the foundational ML pipeline, including:
+🚀 Version Information
+Version: 2.0
+Model: Multi-Feature Linear Regression
+Optimization: Vectorized Gradient Descent
+Preprocessing: Feature Scaling (Normalization)
+Dataset: Custom Multi-Feature Housing Dataset
+Interface: Streamlit Web Application
 
-- Model representation
-- Cost function
-- Gradient computation
-- Gradient Descent optimization
-- Cost convergence visualization
-- Web-based user interface
+🎯 Problem Statement
+Build a scalable machine learning system that predicts house prices based on multiple property attributes.
 
----
+Phase 2 extends the foundational ML pipeline to support:
 
-## 🧠 Concepts Implemented
+Multiple input features (size, bedrooms, age, etc.)
 
-- Linear Regression (f(x) = wx + b)
-- Mean Squared Error (MSE)
-- Cost Function minimization
-- Gradient Descent algorithm
-- Cost vs Iterations analysis
-- Modular ML system architecture
-- UI integration using Streamlit
+Vectorized computation for efficiency
 
----
+Feature normalization for stable convergence
 
-## 🏗 Project Architecture
+Modular architecture for scalability
 
+Real-time UI-based prediction
+
+🧠 Concepts Implemented
+🔹 Core ML Concepts
+Multi-Feature Linear Regression
+
+Mean Squared Error (MSE)
+
+Cost Function Minimization
+
+Vectorized Gradient Descent
+
+Cost vs Iterations Analysis
+
+🔹 Optimization & Engineering
+Feature Scaling (Normalization)
+
+Matrix-based computations (no training loops)
+
+Modular project architecture
+
+Separation of concerns (models, training, preprocessing, UI)
+
+🏗 Project Architecture
 real-estate-ml-system/
 │
 ├── data/
-│ └── housing_v1.csv
+│   └── housing_v2.csv
 │
 ├── src/
-│ ├── models/
-│ │ └── linear_regression.py
-│ │
-│ ├── training/
-│ │ └── trainer.py
-│ │
-│ ├── utils/
-│ │ └── visualization.py
-│ │
-│ ├── main.py
-│ └── app.py
+│   ├── models/
+│   │   └── linear_regression.py
+│   │
+│   ├── preprocessing/
+│   │   └── scaler.py
+│   │
+│   ├── training/
+│   │   └── trainer.py
+│   │
+│   ├── utils/
+│   │   └── visualization.py
+│   │
+│   ├── main.py
+│   └── app.py
 │
 ├── requirements.txt
 └── README.md
+📊 Features
+✅ Multi-Feature Model Training
+Supports multiple input variables
 
+Vectorized gradient descent implementation
 
----
+Efficient matrix operations
 
-## 📊 Features
+📉 Cost vs Iterations Plot
+Visualizes convergence behavior
 
-### ✅ Model Training
-- Gradient Descent implemented from scratch
-- Cost tracking during optimization
+Helps analyze learning rate performance
 
-### 📉 Cost vs Iterations Plot
-- Visualizes convergence behavior
-- Helps analyze learning rate effectiveness
+Confirms optimization stability
 
-### 🌐 Web Interface
-- Built using Streamlit
-- Users can input house size
-- Real-time price prediction displayed
+📐 Feature Scaling
+Normalizes input features
 
----
+Improves gradient descent convergence speed
 
-## ▶️ How to Run (CLI Version)
+Prevents feature dominance issues
 
-```bash
+🌐 Web Interface
+Built using Streamlit
+
+Accepts multiple user inputs (size, bedrooms, age)
+
+Real-time price prediction
+
+Integrated with trained multi-feature model
+
+▶️ How to Run (CLI Version)
 cd src
 python main.py
 🌐 How to Run (Web UI Version)
 cd src
 python -m streamlit run app.py
-The application will open in your browser.
+The application will open automatically in your browser.
 
 📈 Sample Output
-Cost decreases steadily over iterations
+Cost decreases smoothly over iterations
 
-Model converges to optimal parameters
+Model converges to optimal weight vector
 
-Accurate predictions based on training data
+Multi-feature predictions improve accuracy
 
-Interactive UI for user input
+Interactive UI supports real-time estimation
 
+🔬 What Changed from Phase 1
+Phase 1	Phase 2
+Single Feature	Multiple Features
+Scalar Weight	Weight Vector
+Loop-based Gradient	Vectorized Gradient
+Basic Regression	Scalable ML Pipeline
+Simple UI	Multi-input UI
 🔮 Future Phases
-This project is designed to evolve:
+This project continues to evolve toward an industry-grade ML system:
 
-Phase 2 → Multiple Features (Multivariate Regression)
+Phase 3 → Polynomial Regression
 
-Phase 3 → Feature Scaling
+Phase 4 → Train/Test Split & Evaluation Metrics (RMSE, R²)
 
-Phase 4 → Train/Test Split & Model Evaluation
+Phase 5 → Regularization (L2)
 
-Phase 5 → Logistic Regression
+Phase 6 → Logistic Regression (Classification)
 
-Phase 6 → Neural Networks
+Phase 7 → Neural Networks
 
-Phase 7 → Deployment & Model Versioning
+Phase 8 → Deployment & Model Versioning
+
+💡 Project Vision
+This repository represents the progressive development of a structured machine learning system built from first principles, emphasizing:
+
+Deep conceptual understanding
+
+Clean engineering practices
+
+Modular design
+
+Scalable architecture
+
+The goal is to transition from foundational ML implementations to production-ready systems.
 
