@@ -1,17 +1,33 @@
 import pandas as pd
-from training.trainer import train
-from models.linear_regression import predict
+import numpy as np
+
+from preprocessing.scaler import feature_scale
+from training.trainer import gradient_descent
 from utils.visualization import plot_cost
 
-# Load data
+# Load dataset
 data = pd.read_csv("../data/housing_v1.csv")
-x = data["size"].values
+
+# Separate features and target
+X = data[["size", "bedrooms", "age"]].values
 y = data["price"].values
 
+# Feature scaling
+X_scaled, mu, sigma = feature_scale(X)
+
 # Train model
-w, b, cost_history = train(x, y, 0, 0, 0.01, 1000)
+w, b, J_history = gradient_descent(X_scaled, y, alpha=0.01, iterations=1000)
 
-print("Training Complete")
-print(f"w = {w:.4f}, b = {b:.4f}")
+print("\nTraining Finished")
+print(f"Final weights: {w}")
+print(f"Final bias: {b}")
 
-plot_cost(cost_history)
+# Plot cost vs iterations
+plot_cost(J_history)
+
+# Example prediction
+example = np.array([[2000, 4, 3]])
+example_scaled = (example - mu) / sigma
+prediction = example_scaled.dot(w) + b
+
+print(f"\nPrediction for 2000 sqft house: {prediction[0]:.2f}")

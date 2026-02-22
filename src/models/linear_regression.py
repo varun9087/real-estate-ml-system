@@ -1,23 +1,19 @@
 import numpy as np
 
-def predict(x, w, b):
-    return w * x + b
+def compute_cost(X, y, w, b):
+    m = X.shape[0]
+    predictions = X.dot(w) + b
+    cost = (1 / (2 * m)) * np.sum((predictions - y) ** 2)
+    return cost
 
-def compute_cost(x, y, w, b):
-    m = len(x)
-    cost = 0
-    for i in range(m):
-        cost += (predict(x[i], w, b) - y[i]) ** 2
-    return cost / (2 * m)
 
-def compute_gradient(x, y, w, b):
-    m = len(x)
-    dj_dw = 0
-    dj_db = 0
+def compute_gradient(X, y, w, b):
+    m = X.shape[0]
 
-    for i in range(m):
-        error = predict(x[i], w, b) - y[i]
-        dj_dw += error * x[i]
-        dj_db += error
+    predictions = X.dot(w) + b
+    errors = predictions - y
 
-    return dj_dw / m, dj_db / m
+    dj_dw = (1 / m) * X.T.dot(errors)
+    dj_db = (1 / m) * np.sum(errors)
+
+    return dj_dw, dj_db
